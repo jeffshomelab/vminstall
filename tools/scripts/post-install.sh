@@ -13,5 +13,4 @@ $HOME/.volta/bin/volta install node@lts
 
 #btop for system monitoring?  (once run, q to quit)
 
-
-
+echo "All done! You should run this command to finish up: source ~/.bashrc"
