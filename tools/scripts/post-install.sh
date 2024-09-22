@@ -11,7 +11,7 @@ curl https://get.volta.sh | bash
 # Install node using volta from the absolute path
 $HOME/.volta/bin/volta install node@lts
 
-
+#btop for system monitoring?  (once run, q to quit)
 
 
 
