@@ -1,0 +1,23 @@
+{
+  "name": "post-install-frontend",
+  "version": "1.0.0",
+  "description": "A front end webpage containing the post install command for our dev environment.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeffshomelab/vminstall.git"
+  },
+  "author": "Jeff",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jeffshomelab/vminstall/issues"
+  },
+  "homepage": "https://github.com/jeffshomelab/vminstall#readme",
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}
