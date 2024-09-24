@@ -1,8 +1,11 @@
 ## Strings
 
-C does not have a string datatype.  Instead, an Array of char's is used.  C expects a null terminator value (\0) at the end of the array.
+C does not have a string datatype.  Instead, an Array of chars is used.  
 
-- **Note:** The null terminator is not a printable character.
+- As an array is used, a "string" is mutable and can be changed.
+- C expects a null terminator value (\0) at the end of the array.
+
+**Note:** The null terminator is not a printable character.
 
 If you create your array like this, C will add it in for you:
 
@@ -18,14 +21,14 @@ char myArr1[4];
 myArr1[0] = 'J';
 myArr1[1] = 'A';
 myArr1[2] = 'S';
-myArr1[3] = '\0';
-
-//or
-
-char myArr2[] = {'J','A','S'}
+myArr1[3] = '\0';   //Manually added, so it's good.
+```
+**-or-**
+```sh
+char myArr2[] = {'J','A','S'}  //Missing null terminator, will lead to unexpected results.
 ```
 
-If you don't, when you attempt to print the array you may end up with random results.  It may **appear** to work, but it's only coincidence.  C may print extra characters until it finds the null termination value in 'some other' variable. 
+If the null terminator is omitted, when you attempt to print the array you may end up with random results.  It may **appear** to work, but it's only coincidence.  C may print extra characters until it finds the null termination value in 'some other' variable. 
 
 As an example, the following should print:
 
