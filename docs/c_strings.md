@@ -1,10 +1,12 @@
-Strings
+## Strings
 
-C does not have a string datatype.  Instead, an Array of char's is used.  C expects a null terminator value (\0) at the end of the array:
+C does not have a string datatype.  Instead, an Array of char's is used.  C expects a null terminator value (\0) at the end of the array.
+
+- **Note:** The null terminator is not a printable character.
 
 If you create your array like this, C will add it in for you:
 
-```sh
+```
 char myArr3[] = {"JEFF"};
 ```
 
@@ -23,12 +25,12 @@ myArr1[3] = '\0';
 char myArr2[] = {'J','A','S'}
 ```
 
-If you don't, when you attempt to print the array you may end up with random results.  It may 'appear' to work, but it's only coincidence.  C may print extra characters until it finds the null termination value in 'some other' variable. 
+If you don't, when you attempt to print the array you may end up with random results.  It may **appear** to work, but it's only coincidence.  C may print extra characters until it finds the null termination value in 'some other' variable. 
 
 As an example, the following should print:
 
-JAS
-BTR
+**JAS
+BTR**
 
 but it's cycled through and reprinted the first array because myArr2 did not contain the null terminator:
 
