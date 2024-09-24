@@ -1,6 +1,7 @@
 ## GitHub
 
 - GitHub config is stored in project directory: **.git/config**
+https://andrey.mikhalchuk.com/2021/11/07/how-to-push-your-code-to-github-using-personal-access-token-pat.html
 
 ### Restore a file from Repo
 

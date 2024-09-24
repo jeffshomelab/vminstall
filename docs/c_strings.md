@@ -41,3 +41,17 @@ but it's cycled through and reprinted the first array because myArr2 did not con
 myArr1 = JAS
 myArr2 = BTRJAS
 ```
+
+### Inputting Values
+
+When an array is created and you want to accept user input, you need to make sure the user is not allowed to exceed the size of the array.
+
+When using scanf, you can limit the input size with %#s, where # is the number of characters you want to set as a limit.  Anything after that will be truncated:
+
+```sh
+char yourName[10];
+printf("Please enter your name: ");
+scanf("%9s", &yourName);
+```
+
+This will limit the input to 9 characters.
