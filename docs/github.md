@@ -22,6 +22,14 @@ The commits that include the file will be displayed in the format: *commit_hash 
 git checkout ech74h1 -- myfile.c
 ```
 
+### Commit changes to Repo
+
+1. Open the project folder.
+2. Run **git status** to determine what needs to be committed.
+3. Add files to commit:
+    - **Add all files:** git add .
+4. Run **git commit -m "Enter a commit message"
+5. Run **git push**
 
 
 
