@@ -16,7 +16,7 @@ void print_reverse(char *s) {
 
         t = t - 1;
     }
-puts("");
+puts(s);
 
 }
 
