@@ -1,15 +1,26 @@
 ## Pointers
 
+> **Key Points**:
+>
+>A pointer is a variable that stores the memory address of another variable as it's value. 
+>- The **&** takes a piece of data and tells you the address of where it's stored. 
+>- The **\*** takes an address and tells you what is stored there (dereferencing).
+>- To display the address of a variable, use the **%p** format in printf.
+>- In a 32-bit operating system, a pointer will consume 4-bytes.  In a 64-bit operating system, and pointer will consume 8-bytes.
+>- **Array decay** occurs when an array is passed to a function.  It is converted to a pointer and it loses the type and dimension of an array. 
+---
 (Memory) Pointers allow you to pass the address of a variable (e.g. to a function) so the function can modify the value of the original variable.  Without pointers, you generally are only passing the value which means the function is not able to modify the original variable. 
 
 - To print the location of the variable in hex (base16), use %p in printf().
 - To pass the address of a variable, prefix with &
     ```doubleMe(&x)```
-- To create a (pointer variable) for an address, prefix with *.  This is also known as "dereferencing".S
+- To create a (pointer variable) for an address, prefix with *.  This is also known as "dereferencing"  
     ```x* ..```
 - When you declare a pointer variable, you must declare the type of data is stored in the address it will point to:
 
     ```int *x = ...```
+- In a 32-bit operating system, a pointer will consume 4-bytes.  In a 64-bit operating system, and pointer will consume 8-bytes.
+
 
 ```sh
 #include <stdio.h>
@@ -89,7 +100,7 @@ If using the * followed by a variable name "dereferences" the variable in that i
 ```
 
 **Pointer Arithmetic**
-When a point is created, it's technically just an int that can be incremented.  For example, add +1 to a pointer that points to an array of ints will add "+4 bytes" to display the next element:
+When a pointer is created, it's technically just an int, and it can be incremented.  For example, adding +1 to a pointer that points to an array of ints will add "+4 bytes" to display the next element:
 
 ```sh
     int myNumArr1[4] = {1,2,3};
@@ -109,3 +120,8 @@ When a point is created, it's technically just an int that can be incremented.  
 **Memory**
 - If you declare a variable *inside* a function like main(), the computer will store it in a section of memory called the **stack**.
 - If the variable is declared *outside any function*, it will be stored in the **globals** section of memory.
+
+![Variable Storage](./how-to/images/variables_in_memory.jpg)
+
+
+
