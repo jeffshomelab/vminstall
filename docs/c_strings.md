@@ -55,3 +55,11 @@ scanf("%9s", &yourName);
 ```
 
 This will limit the input to 9 characters.
+
+## String Literal
+
+- String literals are a sequence of characters stored in the "Constant" memory block which is **read-only**.
+- Defined by:
+```
+char *myvar = "here is my string";
+```

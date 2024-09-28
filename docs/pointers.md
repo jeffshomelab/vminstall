@@ -3,10 +3,11 @@
 > **Key Points**:
 >
 >A pointer is a variable that stores the memory address of another variable as it's value. 
->- The **&** takes a piece of data and tells you the address of where it's stored. 
+>- The **&** takes a piece of data and tells you the address of where it's stored.
 >- The **\*** takes an address and tells you what is stored there (dereferencing).
 >- To display the address of a variable, use the **%p** format in printf.
 >- In a 32-bit operating system, a pointer will consume 4-bytes.  In a 64-bit operating system, and pointer will consume 8-bytes.
+>- The address to an array points to the memory location of the first element: myArr[0].  When reading the array, the system stops at the null terminator **(\0)**.
 >- **Array decay** occurs when an array is passed to a function.  It is converted to a pointer and it loses the type and dimension of an array. 
 ---
 (Memory) Pointers allow you to pass the address of a variable (e.g. to a function) so the function can modify the value of the original variable.  Without pointers, you generally are only passing the value which means the function is not able to modify the original variable. 
