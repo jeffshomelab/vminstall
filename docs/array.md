@@ -11,7 +11,7 @@
 >-- int prices[5] = { 1, 2, 3, 4, 5 };
 >-- char myArr = { 'j', 'e', 'f', 'f', '\0' };
 >-- char myArr[] = {"jeffrey"};
-
+---
 
 - You can use a constant to define the size:
 

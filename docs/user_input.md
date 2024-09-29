@@ -42,3 +42,13 @@ if(new_line_occ != NULL) {
 ```
 ---
 ## scanf
+```sh
+while(scanf("%f,%f,%79[^\n]", &latitude, &longitude, info) == 3) 
+```
+- **%f,%f**: scanf is expecting two floats, separated by a comma.
+- **%79[^\n]**: This is a scanset and scanf will read up to 79 characters.  This is done to prevent a buffer overflow (e.g. the input variable is size 80).
+-- *%79*:  This will include white space or tabs.
+-- *[^\n]*:  The ^ means that scanf should stop reading at the first occurrence of the next character.  In this case, the new line \n.
+
+**Why %79 and not %79c or %79s?**
+
