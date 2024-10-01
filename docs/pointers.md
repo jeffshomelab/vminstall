@@ -9,6 +9,9 @@
 >- In a 32-bit operating system, a pointer will consume 4-bytes.  In a 64-bit operating system, and pointer will consume 8-bytes.
 >- The address to an array points to the memory location of the first element: myArr[0].  When reading the array, the system stops at the null terminator **(\0)**.
 >- **Array decay** occurs when an array is passed to a function.  It is converted to a pointer and it loses the type and dimension of an array. 
+>- When using a pointer (e.g. *ret) in code, refer to the following guidelines:
+>-- **\*ret** dereferences the pointer to access the actual character stored at that memory location.
+>-- **ret** still holds the address, so it is printed using %p as a pointer.
 ---
 (Memory) Pointers allow you to pass the address of a variable (e.g. to a function) so the function can modify the value of the original variable.  Without pointers, you generally are only passing the value which means the function is not able to modify the original variable. 
 
