@@ -7,7 +7,6 @@ Header files allow you to separate function declaration and definitions.
 - #include is a preprocessor instruction.
 - Header files allow you to define functions as well as the return type.  Without header files, if C finds a function it hasn't heard of already, it *assumes* the return type is an int.
 
-
 **Header File: addtax.h**
 ```sh
 float add_with_tax(float f);
@@ -25,6 +24,82 @@ float add_with_tax(float f){
 ...
 }
 ```
+
+### Multiple C Files
+
+Code can be split between multiple C files for reusability.
+
+1. Create multiple .c files that contain one or more functions.
+2. Create a header (.h) file that contains the declaration to a function included in a separate .c file.
+3. In the primary and secondary .c files, include the reference to the .h file.
+
+```sh
+**encrypt.h**
+-------------
+
+void encrypt(char *message);
+
+**encrypt.c**
+-------------
+
+#include "encrypt.h"
+
+void encrypt(char *message) {
+...
+}
+
+**message_hider.c**
+-------------------
+
+#include <stdio.h>
+#include "encrypt.h"
+
+int main(){
+...
+}
+```
+
+When compiling the files, you need to include all .c file name(s):
+`gcc message_hider.c encrypt.c -o message_hider.exe`
+
+
+#### Compiling Multiple Files - Strategy #1
+
+When you have multiple .c files, you don't always need to recompile all of them if only 1 or 2 lines in one file have changed.  
+
+1. Create object files. Use the following command to generate output files for your C code: `gcc -c *.c`.  
+**Note:** This will compile all files in the current directory..  Be careful.
+
+2. Make changes to .c files as needed.  Create new object file. `gcc -c file_i_changed.c`
+
+3. Compile all object files. `gcc *.o -o myexecutable.exe`
+
+For a better approach, see make
+
+### make
+
+make allows you to create an *automated, multi-step process to compile code when changes are made.  
+
+> **target_name:** dependencies1 dependencies2 dependencies3...
+> &nbsp; &nbsp; &nbsp; &nbsp; gcc -options filname(s)    //This line MUST begin with a tab
+
+The contents must be saved in a file called Makefile or makefile
+```sh
+message_hider.o: message_hider.c encrypt.h
+        gcc -c message_hider.c
+
+encrypt.o: encrypt.c encrypt.h
+        gcc -c encrypt.c
+
+message_hider: message_hider.o encrypt.o
+        gcc message_hider.o encrypt.o -o message_hider.exe
+```
+
+**Usage**
+I think you can simply use `make target` where *target* is the target from the makefile you want to create (e.g. message_hider)
+
+`make message_hider`
+
 ### Reserved Words
 
 ![C Reserved Words](./how-to/images/reserved_words.jpg);

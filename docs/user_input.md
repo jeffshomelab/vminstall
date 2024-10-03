@@ -6,9 +6,9 @@ fgets(char* str, int count, stream[file or stdin])
 
 ### Parameters
 
->-str	-	pointer to an element of a char array
+>-str -	A pointer to an array of characters where the read string will be stored. This array should be large enough to hold the string, including the terminating null character.
 >-count	-	maximum number of characters to write (typically the length of str)
->-stream	-	file stream to read the data from
+>-stream -	file stream to read the data from
 
 ### Return
 >- str on success, null pointer on failure.

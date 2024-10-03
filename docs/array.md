@@ -39,6 +39,11 @@ char myArr = { 'j', 'e', 'f', 'f', '\0' };
 printf("Your name is: %s", myArr);
 Result: jeff
 ```
+- Using printf, pass the decimal precision by using .# (e.g. %.2f to indicate two-decimals.)
+
+```sh
+printf("Your total cost is is: %.2f", myCost);
+```
 
 - If you pass a string to a char array, C will automatically create an array of appropriate size with the terminator.
 
