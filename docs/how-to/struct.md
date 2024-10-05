@@ -79,7 +79,104 @@ When a struct is passed to a function it is *passed by value* and a clone of the
 > birthday(&jeff);
 - In the function, create a pointer variable:
 > void birthday(turtle *t) {...}
-- When using the struct variable, using the following format:
-> (*u).age = (*u).age+1;
+- When using the struct variable, using one of the following format:
+> - (*u).age = (*u).age+1;
+> - t->age = t->age+1;  //The age field in the struct that t points to.
 
-**Note:** The format is important! *(\*structname).field*
+**Note:** The format is important! *(\*structname).field* or *structname->field*
+
+### union
+
+union allows you to define multiple data types to store a value
+
+- A union will allocate enough space for the largest data type.
+- Declared with `typedef union { ... } union_name;`
+
+```sh
+typedef union {
+short count;
+float weight;
+float volume
+} quantity;
+```
+
+When setting values, use one of the follow notations:
+
+
+1. C89 notation allowed when setting the FIRST value (e.g. short count);
+> quantity q = { 4 };  
+2. **Designated initializer** sets a union field by name.
+- Designated initializer are part of the C99 standard.  Not supported in C++.
+> quantity q = { .weight=1.5 }; 
+3. Using dot notation:
+> quantity q;
+> q.volume = 3.7;
+
+### enum (enumeration)
+
+enums allow you to create a list of symbols.
+- symbols are separated by a comma
+- symbols are zero-indexed
+
+```sh
+#include <stdio.h>
+
+typedef enum {
+ COUNT, POUNDS, PINTS
+ } unit_of_measure;
+
+typedef union {
+  short count;
+  float weight;
+  float volume;
+} quantity;
+
+typedef struct {
+  const char *name;
+  const char *country;
+  quantity amount; //union
+  unit_of_measure units; //enum
+} fruit_order;
+ ```
+
+### bit fields
+
+bit fields allow you to set the size (in bits) of a the memory size of the individual elements of a struct.
+- This allows you to minimize the memory needed when only 1s and 0s actually needed to be stored.
+- bitfield = 4 can store numbers up to 15. bit field = 3 can store numbers up to 7.
+- bitfields should be declared as **unsigned int**
+
+The syntax to declare a bit field is:
+
+> struct {
+> data_type elem : width;
+> };
+
+Example to demonstrate memory usage:
+```sh
+#include <stdio.h>
+
+/* define simple structure */
+struct {
+   unsigned int widthValidated;
+   unsigned int heightValidated;
+} status1;
+
+/* define a structure with bit fields */
+struct {
+   unsigned int widthValidated : 1;
+   unsigned int heightValidated : 1;
+} status2;
+
+int main() {
+
+   printf("Memory size occupied by status1: %d\n", sizeof(status1));
+   printf("Memory size occupied by status2: %d\n", sizeof(status2));
+   
+   return 0;
+}
+
+**Output**
+Memory size occupied by status1: 8
+Memory size occupied by status2: 4
+```
