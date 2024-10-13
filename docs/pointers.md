@@ -10,8 +10,9 @@
 >- The address to an array points to the memory location of the first element: myArr[0].  When reading the array, the system stops at the null terminator **(\0)**.
 >- **Array decay** occurs when an array is passed to a function.  It is converted to a pointer and it loses the type and dimension of an array. 
 >- When using a pointer (e.g. *ret) in code, refer to the following guidelines:
->-- **\*ret** dereferences the pointer to access the actual character stored at that memory location.
->-- **ret** still holds the address, so it is printed using %p as a pointer.
+>- **\*ret** dereferences the pointer to access the actual character stored at that memory location.
+>- **ret** still holds the address, so it is printed using %p as a pointer.
+>- The following declarations means the same thing: `int* age` and `int *age` and the usage is largely based on preference..
 ---
 (Memory) Pointers allow you to pass the address of a variable (e.g. to a function) so the function can modify the value of the original variable.  Without pointers, you generally are only passing the value which means the function is not able to modify the original variable. 
 
@@ -19,7 +20,7 @@
 - To pass the address of a variable, prefix with &
     ```doubleMe(&x)```
 - To create a (pointer variable) for an address, prefix with *.  This is also known as "dereferencing"  
-    ```x* ..```
+    ```*x ..```
 - When you declare a pointer variable, you must declare the type of data is stored in the address it will point to:
 
     ```int *x = ...```

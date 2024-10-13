@@ -63,3 +63,13 @@ This will limit the input to 9 characters.
 ```
 char *myvar = "here is my string";
 ```
+
+String literals are a pointer to an address in read-only memory.  This means the value cannot be modified directly, but you are able to point to "another" memory address to reassign the value of the variable.   For example:
+
+**Will not work**
+char* name = "jeff";
+name[0] = k;
+
+**Will work**
+char* name = "jeff";
+name = "allen"; //points to a new address in memory.
