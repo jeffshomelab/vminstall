@@ -117,6 +117,10 @@ When setting values, use one of the follow notations:
 enums allow you to create a list of symbols.
 - symbols are separated by a comma
 - symbols are zero-indexed
+- enum variables can only contain valid values
+- No quotes are needed when creating or using enums
+- enums are treated as integers (first name in list is 0)
+
 
 ```sh
 #include <stdio.h>
@@ -138,6 +142,26 @@ typedef struct {
   unit_of_measure units; //enum
 } fruit_order;
  ```
+
+ #### Using enum
+
+```sh
+enum unit_of_measure {
+ COUNT, POUNDS, PINTS
+ };
+
+
+ void main() {
+
+    enum unit_of_measure measure;
+    measure = POUNDS;
+    printf("Measure = %i\n", measure);  // prints 1
+
+ }
+```
+
+
+
 
 ### bit fields
 

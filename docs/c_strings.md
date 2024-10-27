@@ -56,6 +56,9 @@ scanf("%9s", &yourName);
 
 This will limit the input to 9 characters.
 
+### Escape Characters
+
+![Escape Characters](./how-to/images/escape_characters.jpg)
 ## String Literal
 
 - String literals are a sequence of characters stored in the "Constant" memory block which is **read-only**.
